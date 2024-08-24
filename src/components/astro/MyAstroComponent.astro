@@ -1,9 +1,13 @@
 ---
+import MyChildAstroComponent from './MyChildAstroComponent.astro';
 interface Props {
     message: string;
 }
 
 const {message} = Astro.props
+const colors = "rgb(221 120 228)";
+console.log("hello")
+
 ---
 
 <script>
@@ -11,11 +15,11 @@ const {message} = Astro.props
         constructor() {
             super()
 
-            const message = this.dataset.messages
+            const msg = this.dataset.messages
             const button = document.querySelector('[data-button]');
             
             button?.addEventListener('click', () => {
-                alert(message)
+                alert(msg)
             })
         }
     }
@@ -23,8 +27,20 @@ const {message} = Astro.props
     customElements.define('astro-greet', AstroGreet)
 </script>
 
+<style define:vars={{colors}} is:raw>
+    span {
+        color: green
+    }
+</style>
+
 <div>
+    <MyChildAstroComponent message={message}>
+        <slot name="after-footer" slot="after-header">Fallback content</slot>
+    </MyChildAstroComponent>
+    <slot name="after-header"></slot>
+    <span  is:raw>{message}</span>
     <astro-greet data-messages={message}>
         <button class="bg-green" data-button>Click me</button>
     </astro-greet>
+    <slot/>
 </div>

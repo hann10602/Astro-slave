@@ -36,7 +36,6 @@ import Layout from '../layouts/Layout.astro';
 			</defs>
 		</svg>
 		<h1>Welcome to <span class="text-gradient">0</span></h1>
-		<MyAstroComponent message='clma'/>
 		<p class="instructions">
 			To get started, open the directory <code>src/pages</code> in your project.<br />
 			<strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message above.
@@ -63,9 +62,15 @@ import Layout from '../layouts/Layout.astro';
 				body="Come say hi to our amazing Discord community. ❤️"
 			/>
 		</ul>
-		<MyReactComponent client:visible>
-			<div class="text-yellow-500 bg-red-400">hello</div>
-		</MyReactComponent>
+		<!-- <MyReactComponent client:visible header="header text">
+			<div class="text-yellow-500 bg-red-400" slot="header">this is Header slot</div>
+			<div class="text-blue-500 bg-orange-400" slot="footer">this is footer slot</div>
+		</MyReactComponent> -->
+		<MyAstroComponent message='clma'>
+			<div slot="after-header">slot for header</div>
+			<div slot="after-footer">slot for footer</div>	
+		</MyAstroComponent>
+		<span>root component</span>
 	</main>
 </Layout>
 

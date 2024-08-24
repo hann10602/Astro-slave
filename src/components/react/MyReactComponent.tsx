@@ -1,26 +1,36 @@
-import React from 'react'
+"use-client";
+import React from "react";
 
 type Props = {
-  children: React.ReactNode
-}
+  header?: string;
+  footer?: React.ReactNode;
+};
 
-export const MyReactComponent = ({children}: Props) => {
-  const [isOpen, setIsOpen] = React.useState<boolean>(false)
+export const MyReactComponent = ({ header, footer }: Props) => {
+  const [isOpen, setIsOpen] = React.useState<boolean>(false);
   const handleToggle = () => {
-    setIsOpen(prev => !prev)
-  }
+    setIsOpen((prev) => !prev);
+  };
 
   const handleAlert = () => {
-    alert(children)
-  }
+    alert(header);
+  };
+
+  const handleSetLocalStorage = () => {
+    localStorage.setItem("password", import.meta.env.SECRET_PASSWORD);
+  };
 
   // document.getElementById("asd")?.addEventListener('click', () => handleAlert())
 
   return (
-    <div className='bg-white text-black mb-20'>
-    <button onClick={handleToggle}>Click me</button>
-    <button id='asd'>Click me 2</button>
-      {isOpen && children}
+    <div className="bg-white text-black mb-20">
+      {isOpen && <p className="bg-green-600 text-white">{header}</p>}
+
+      <button onClick={handleToggle}>Click me</button>
+      <button id="asd" onClick={handleSetLocalStorage}>
+        Click me 2
+      </button>
+      {isOpen && footer}
     </div>
-  )
-}
+  );
+};

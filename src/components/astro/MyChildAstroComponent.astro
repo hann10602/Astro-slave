@@ -1,0 +1,19 @@
+---
+
+interface Props {
+    message: string;
+}
+
+const {message} = Astro.props
+
+---
+<div>
+    <span>Hello</span>
+    <slot name="after-header"></slot>
+</div>
+
+<style>
+
+</style>
+
+<script></script>
