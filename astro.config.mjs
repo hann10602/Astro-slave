@@ -4,7 +4,15 @@ import tailwind from "@astrojs/tailwind";
 
 // https://astro.build/config
 export default defineConfig({
+  i18n: {
+    defaultLocale: "en",
+    locales: ["es", "en", "fr"],
+    routing: {
+      prefixDefaultLocale: false,
+    },
+  },
   integrations: [react(), tailwind()],
+  prefetch: true,
   build: {
     format: "file",
   },

@@ -1,0 +1,45 @@
+---
+type Props = {
+
+}
+
+type AstronautProps = {
+    astronaut: string
+}
+
+import type { GetStaticPaths } from "astro";
+export async function getStaticPaths() {
+    // const data = await fetch('http://localhost:4321/api/single.json').then(res => res.json()).catch(err => console.log(err))
+
+    // const astronautPages: AstronautProps[] = [{
+    //     astronaut: "first page"
+    // },{
+    //     astronaut: "second page"
+    // },{
+    //     astronaut: "third page"
+    // },{
+    //     astronaut: "fourth page"
+    // },]
+
+    return [
+        {
+            params: {user: "hann"}
+        },
+        {
+            params: {user: "datrg"}
+        }
+    ]
+};
+
+const { user }: any = Astro.params
+
+---
+<div>
+    <h2>{user}</h2>
+</div>
+
+<style>
+
+</style>
+
+<script></script>

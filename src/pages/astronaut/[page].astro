@@ -1,0 +1,37 @@
+---
+type Props = {
+
+}
+
+type AstronautProps = {
+    astronaut: string
+}
+
+import type { GetStaticPaths } from "astro";
+export const getStaticPaths = (({paginate}) => {
+    const astronautPages: AstronautProps[] = [{
+        astronaut: "first page"
+    },{
+        astronaut: "second page"
+    },{
+        astronaut: "third page"
+    },{
+        astronaut: "fourth page"
+    },]
+
+    return paginate(astronautPages, {pageSize: 2})
+}) satisfies GetStaticPaths;
+
+const { page }: any = Astro.props
+
+---
+<div>
+    <h1>Page {page.currentPage}</h1>
+    <ul>{page.data.map(({astronaut}: AstronautProps) => <li>{astronaut}</li>)}</ul>
+</div>
+
+<style>
+
+</style>
+
+<script></script>
