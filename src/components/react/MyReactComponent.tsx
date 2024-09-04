@@ -14,9 +14,9 @@ export const MyReactComponent = ({ header, footer }: Props) => {
     setIsOpen((prev) => !prev);
   };
 
-  const handleAlert = () => {
-    alert(header);
-  };
+  // const handleAlert = () => {
+  //   alert(header);
+  // };
 
   const handleSetLocalStorage = () => {
     localStorage.setItem("password", import.meta.env.SECRET_PASSWORD);

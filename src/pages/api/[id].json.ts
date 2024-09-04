@@ -1,6 +1,6 @@
 const usernames = ["Sarah", "Chris", "Yan", "Elian"];
 
-export async function GET({ params, request }: any) {
+export async function GET({ params }: any) {
   const id = params.id;
   return new Response(
     JSON.stringify({

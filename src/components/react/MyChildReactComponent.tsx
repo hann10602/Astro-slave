@@ -1,8 +1,6 @@
 import React from "react";
 
-type Props = {};
-
-const MyChildReactComponent = (props: Props) => {
+const MyChildReactComponent = () => {
   return <div className="bg-white ">MyChildReactComponent</div>;
 };
 

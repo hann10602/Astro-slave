@@ -9,7 +9,7 @@ const {message} = Astro.props
 ---
 <div>
     <span>Hello</span>
-    <slot name="after-header"></slot>
+    <slot name="after-header">{message}</slot>
 </div>
 
 <style>

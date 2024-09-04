@@ -1,6 +1,5 @@
 ---
 import Card from '../components/Card.astro';
-import MyAstroComponent from '../components/astro/MyAstroComponent.astro';
 import { MyReactComponent } from '../components/react/MyReactComponent';
 import Layout from '../layouts/Layout.astro';
 ---
@@ -63,7 +62,7 @@ import Layout from '../layouts/Layout.astro';
 			/>
 		</ul>
 		<a href="/api/2.json" data-astro-prefetch="viewport">move to api</a>
-		<MyReactComponent client:visible header="header text">
+		<MyReactComponent  header="header text" client:visible>
 			<div class="text-yellow-500 bg-red-400" slot="header">this is Header slot</div>
 			<div class="text-blue-500 bg-orange-400" slot="footer">this is footer slot</div>
 		</MyReactComponent>

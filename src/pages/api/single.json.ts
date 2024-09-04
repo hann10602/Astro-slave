@@ -1,4 +1,4 @@
-export async function GET({ params, request }: any) {
+export async function GET({}: any) {
   return new Response(
     JSON.stringify({
       name: "Astro",

@@ -1,12 +1,12 @@
 ---
-const title = Astro.locals.welcomeTitle();
-const orders = Astro.locals.orders;
+const title = (Astro.locals as any).welcomeTitle();
+const orders = (Astro.locals as any).orders;
 
 console.log(orders)
 ---
 <h1>{title}</h1>
 <ul>
-    {orders.map(order => {
+    {orders.map((order: any) => {
         return <li>{order}</li>;
     })}
 </ul>
